@@ -1,21 +1,20 @@
-import React from 'react';
+import React from "react";
 
-const Filter = ({ onCategoryChange }) => {
-  const categories = ['All', 'Produce', 'Dairy', 'Meat'];
-
-  const handleChange = (event) => {
-    onCategoryChange(event.target.value);
+function Filter({ onCategoryChange }) {
+  const handleCategoryChange = (e) => {
+    onCategoryChange(e.target.value);
   };
 
   return (
-    <select onChange={handleChange}>
-      {categories.map((category) => (
-        <option key={category} value={category}>
-          {category}
-        </option>
-      ))}
-    </select>
+    <div className="Filter">
+      <select name="filter" onChange={handleCategoryChange}>
+        <option value="All">Filter by category</option>
+        <option value="Produce">Produce</option>
+        <option value="Dairy">Dairy</option>
+        <option value="Dessert">Dessert</option>
+      </select>
+    </div>
   );
-};
+}
 
 export default Filter;
